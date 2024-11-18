@@ -12,9 +12,9 @@
 ## Tech Stack
 
 - **Frontend**: React, HTML, CSS, JavaScript
-- **Backend**: Python (e.g., Flask, Django, FastAPI)
-- **Database**: [Database of your choice, e.g., PostgreSQL, MongoDB]
-- **Others**: [Additional tools, e.g., Docker, Redis]
+- **Backend**: Python ( Flask )
+- **Database**: MySQL
+- **Others**: Docker
 
 ## Features
 
