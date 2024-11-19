@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+  backend:
+    build: .
+    container_name: flask_backend
+    environment:
+      - DATABASE_URL=postgresql://user:password@postgres:5432/mydatabase
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
