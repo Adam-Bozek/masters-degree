@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import ProtectedRoute from "./components/utilities/ProtectedRoute";
+
+// Public routes
+import Home from "./components/LandingPage";
+
+// Private routes
+import AfterRegistration from "./components/AfterRegistration";
+
+
+const App = () => {
+	return (
+		<Routes>
+			{/* Public routes */}
+			<Route path="/Home" element={<Home />} />
+
+			{/* Public Routes */}
+			<Route path="/ParentDashboardTasks" element={<ProtectedRoute element={<ParentDashboardTasks />} allowedRoles={["parent"]} />} />
+
+			{/* Private Routes */}
+			<Route path="/KidRewardExchange" element={<ProtectedRoute element={<KidRewardExchange />} allowedRoles={["kid"]} />} />
+
+			{/* Catch-all redirect */}
+			<Route path="*" element={<Navigate replace to="/Home" />} />
+		</Routes>
+	);
+};
 
 export default App;
